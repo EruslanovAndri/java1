@@ -14,13 +14,20 @@ public class HomeWork2 {
 
         String s1 = "Hello world";
         String s2 = "world";
+//        String s1 = "ABC";
+//        String s2 = "BCA";
         StringBuilder builder1 = new StringBuilder(s1);
         StringBuilder builder2 = new StringBuilder(s2);
         System.out.println(builder1.toString().contains(builder2.toString()));
 
-        // 2. Напишите программу, чтобы проверить, являются ли две данные строки вращением друг друга (вхождение в обратном порядке).
+        // 2. Напишите программу, чтобы проверить, являются ли две данные строки вращением друг друга (вхождение в обратном порядке)
 
-        System.out.println(builder1.reverse().toString().contains(builder2.reverse().toString()));
+        if (areRotations(s1,s2))
+            System.out.println("Yes");
+        else
+            System.out.println("NO");
+//        System.out.println(builder1.reverse().toString().contains(builder2.reverse().toString()));
+
 
         // 3. *Напишите программу, чтобы перевернуть строку с помощью рекурсии.
 
@@ -78,7 +85,9 @@ public class HomeWork2 {
     }
 
 
-
+    static boolean areRotations(String s1,String s2){
+        return (s1.length() == s2.length()) && ((s1+s1).contains(s2));
+    }
 
 
 

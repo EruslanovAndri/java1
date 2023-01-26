@@ -18,10 +18,11 @@ public class Lesson2_StringBuilder {
 
         Integer num1 = 3;
         Integer num2 = 56;
-        System.out.printf("Res = %s\nRes = %s\nRes = %s\nRes = %f\n", num1 - num2,num1 + num2,num1 * num2,num1.floatValue() / num2.floatValue());
+        //System.out.printf("Res = %s\nRes = %s\nRes = %s\nRes = %f\n", num1 - num2,num1 + num2,num1 * num2,num1.floatValue() / num2.floatValue());
         StringBuilder b3 = new StringBuilder();
         b3.append(num1).append("+").append(num2).append("=").append(num1+num2);
-        System.out.println(b3.toString().replace("="," равно "));
+        System.out.println(b3);
+//        System.out.println(b3.toString().replace("="," равно "));
 
         long start = System.currentTimeMillis();
         String s = "";
