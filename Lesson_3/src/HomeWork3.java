@@ -70,17 +70,23 @@ public class HomeWork3 {
 
         System.out.println(color_lst);
         System.out.println(new_color_list);
-        for (int i = 0; i < new_color_list.size(); i++) {
-            if(new_color_list.get(i) != color_lst.get(i)){
-                color_lst.remove(i);
+        ArrayList<String> res_list = new ArrayList<>();
+        for (int i = 0; i < color_lst.size(); i++) {
+            for (int j = 0; j < new_color_list.size(); j++) {
+                if(color_lst.get(i) == new_color_list.get(j)){
+                    res_list.add(color_lst.get(i));
+                    color_lst.remove(i);
+                }
             }
         }
         System.out.println(color_lst);
-        // DO NOT WORK!!!
+        System.out.println(res_list);
+
 
 
 
         // 10. *Сортировка списка.
+        System.out.println(color_lst);
         Collections.sort(color_lst);
         System.out.println(color_lst);
 
