@@ -16,13 +16,15 @@ public class Ex005 {
         // 1 2 3 * 4 * + 10 5 / * 20 -
         
         //var exp = "20 30 - 10 *".split(" "); // (20-30)*10
-        var exp = "1 2 + 3 *".split(" "); // (1 + 2) * 3
+        //var exp = "1 2 + 3 *".split(" "); // (1 + 2) * 3
         
+
         //var exp = "1 2 3 * +".split(" "); // 1 + 2 * 3
+        var exp = "2 3 3 2 * * +".split(" "); // 2 + 3^2 * 2
         int res = 0;
         System.out.println(exp);
         
-        Stack<Integer> st = new Stack<>();
+        Stack<Integer> st = new Stack<>(); // Stack FILO first in last out.
         for (int i = 0; i < exp.length; i++) {
 
             if (isDigit(exp[i])) {
@@ -43,6 +45,10 @@ public class Ex005 {
                         break;
                     case "/":
                         res =  st.pop()/ st.pop();
+                        st.push(res);
+                        break;
+                    case "^":
+                        res = st.pop() ^ st.pop();
                         st.push(res);
                         break;
                     default:

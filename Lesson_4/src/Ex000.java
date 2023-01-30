@@ -2,7 +2,8 @@ import java.util.PriorityQueue;
 
 public class Ex000 {
     public static void main(String[] args) {
-        PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+        PriorityQueue<Integer> pq = new PriorityQueue<Integer>(); // отдает приоритет наименьшему элементы, но нужно понять
+        // по какому критерию определять наименьший элемент.
         pq.add(123);
         pq.add(3);
         pq.add(13);
