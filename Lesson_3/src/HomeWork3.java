@@ -81,6 +81,7 @@ public class HomeWork3 {
         }
         System.out.println(color_lst);
         System.out.println(res_list);
+        System.out.println(color_lst.retainAll(new_color_list));
 
 
 
