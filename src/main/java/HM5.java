@@ -43,6 +43,7 @@ public class HM5{
         Random rnd = new Random();
         while (count < 1000){
             treeMap.put(rnd.nextInt(2000),"String" );
+            hashMap.put(rnd.nextInt(2000),"String" );
             count ++;
 
         }
@@ -56,6 +57,14 @@ public class HM5{
         }
         long end = System.currentTimeMillis();
 
-        System.out.println(end - start);
+        System.out.printf("TreeMap = %s",end - start);
+
+        long start1 = System.currentTimeMillis();
+        for (int i = 0; i < hashMap.size(); i++) {
+            System.out.println(i);
+        }
+        long end1 = System.currentTimeMillis();
+
+        System.out.printf("HashMap = %s", end1 - start1);
     }
 }
