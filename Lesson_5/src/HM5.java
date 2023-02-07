@@ -21,7 +21,7 @@ public class HM5{
 
         // 3.Изменить значения дописав восклицательные знаки.
 
-        for (Map.Entry<Integer,String> item: hashMap.entrySet()){
+        for (HashMap.Entry<Integer,String> item: hashMap.entrySet()){
             System.out.println(item.getKey()+ " "  +  item.getValue()+ "!");
         }
         // 4.*Создать TreeMap, заполнить аналогично.

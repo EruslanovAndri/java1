@@ -2,7 +2,7 @@ import java.util.*;
  
 public class Ex001_HashMap {
     public static void main(String[] args) {
-        Map<Integer, String> db = new HashMap<>();
+        HashMap<Integer, String> db = new HashMap<>();
         db.putIfAbsent(1, "один"); 
         db.put(2, "два"); 
         db.put(null, "!null"); 
