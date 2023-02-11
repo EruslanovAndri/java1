@@ -41,6 +41,7 @@ class MyHashSet {
         for (int i = 0; i < hashSet.size(); i++) {
             System.out.println(hashSet.toArray()[i] + " Element");
         }
+
     }
 }
 
