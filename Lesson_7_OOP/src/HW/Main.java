@@ -43,6 +43,7 @@ public class Main{
         Warlock warlock = new Warlock("John",1,36,123,33);
         System.out.println(warlock.getInfo());
 
+
     }
 
 }

@@ -44,6 +44,15 @@ public class Hero {
         return maxHp;
     }
 
+    /**
+     * Переопределение базового метода toString под свою задачу.
+     * @return
+     */
+    @Override
+    public String toString(){
+        return getInfo();
+    }
+
     public String  getInfo(){
         return String.format("Name: %s Level: %d HP: %d MaxHp: %d",this.name,
                 this.level,this.hp,this.maxHp);
