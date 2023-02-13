@@ -1,9 +1,9 @@
 package HW.Unit;
 
 /**
- * Общий класс
+ * Общий обстрактный класс Hero
  */
-public class Hero {
+public abstract class  Hero {
 
    protected String name;
    protected Integer level;

@@ -25,4 +25,8 @@ public class Pikeman extends Hero{
     public String getInfo(){
         return String.format("%s Stamina: %d",super.getInfo(),this.stamina);
     }
+
+    public void getPike(){
+
+    }
 }

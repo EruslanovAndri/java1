@@ -34,4 +34,8 @@ public class Crossbowman extends Hero{
     public void attack(){
 
     }
+
+    public Integer getArrow(){
+       return this.arrow + 1;
+    }
 }

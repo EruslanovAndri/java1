@@ -23,10 +23,12 @@ public class Monk extends Hero{
     }
 
     public Integer toDoMagic(){
-        return magic;
+        return this.magic;
     }
 
     public String getInfo(){
         return String.format("%s Magic: %d",super.getInfo(),this.magic);
     }
+
+
 }

@@ -25,4 +25,8 @@ public class Warlock extends Hero{
     public String getInfo(){
         return String.format("%s Magic: %d",super.getInfo(),this.magic);
     }
+
+    public Integer toDoMagic(){
+        return this.magic;
+    }
 }

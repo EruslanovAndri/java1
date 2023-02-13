@@ -20,4 +20,8 @@ public class Fermer extends Hero {
         return String.format("%s",super.getInfo());
     }
 
+    public void help(){
+
+    }
+
 }

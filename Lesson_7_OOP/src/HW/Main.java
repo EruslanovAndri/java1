@@ -23,27 +23,23 @@ public class Main{
         System.out.println(bandit.getInfo());
 
         Crossbowman crossbowman = new Crossbowman("Max",1,90,120,25,35);
-        System.out.println(crossbowman.getInfo());
-        crossbowman.attack();
-
+        System.out.println(crossbowman.toString());
 
         Fermer fermer = new Fermer("Vik",1,75,120);
-        System.out.println(fermer.getInfo());
+        System.out.println(fermer.toString());
 
         Monk monk = new Monk("Jack",1,99,200,45);
-        System.out.println(monk.getInfo());
+        System.out.println(monk.toString());
 
         Pikeman pikeman = new Pikeman("Piky",1,12,54,12);
-        System.out.println(pikeman.getInfo());
+        System.out.println(pikeman.toString());
 
         Sniper sniper = new Sniper("Goal",1,144,300,15);
-        System.out.println(sniper.getInfo());
+        System.out.println(sniper.toString());
 
 
         Warlock warlock = new Warlock("John",1,36,123,33);
         System.out.println(warlock.getInfo());
-
-
     }
 
 }

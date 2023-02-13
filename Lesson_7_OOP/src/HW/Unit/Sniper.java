@@ -28,4 +28,9 @@ public class Sniper extends Hero{
     public String getInfo(){
         return String.format("%s Precision: %d",super.getInfo(),this.precision);
     }
+
+    public void attack(){
+
+    }
+
 }
