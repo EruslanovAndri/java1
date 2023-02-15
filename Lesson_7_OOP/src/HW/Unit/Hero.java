@@ -3,13 +3,10 @@ package HW.Unit;
 /**
  * Общий обстрактный класс Hero
  */
-public abstract class  Hero {
+public abstract class  Hero implements GameInterface {
 
    protected String name;
-   protected Integer level;
-   protected Integer hp;
-   protected Integer maxHp;
-
+   protected Integer level,hp,maxHp;
     /**
      * Конструктор общего класса.
      * @param name
@@ -25,37 +22,24 @@ public abstract class  Hero {
     }
 
     /**
-     * Методы в классе Hero возвращающие поля класса.
-     * @return
-     */
-    public String getName(){
-        return name;
-    }
-
-    public Integer getLevel(){
-        return level;
-    }
-
-    public Integer getHp(){
-        return hp;
-    }
-
-    public Integer getMaxHp(){
-        return maxHp;
-    }
-
-    /**
      * Переопределение базового метода toString под свою задачу.
      * @return
      */
+
+//    public String  getInfo(){
+//        return String.format("Name: %s Level: %d HP: %d MaxHp: %d",this.name,
+//                this.level,this.hp,this.maxHp);
+//    }
+
+
     @Override
-    public String toString(){
-        return getInfo();
+    public void step() {
+
     }
 
-    public String  getInfo(){
+    @Override
+    public String getInfo() {
         return String.format("Name: %s Level: %d HP: %d MaxHp: %d",this.name,
                 this.level,this.hp,this.maxHp);
     }
-
 }

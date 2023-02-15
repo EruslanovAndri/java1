@@ -3,27 +3,23 @@ package HW.Unit;
 /**
  * Конструктор класса Копейщик
  */
-public class Pikeman extends Hero{
-    /**
-     * Поле класса Копейщика
-     */
-    Integer stamina;
+public class Pikeman extends Shooter{
 
-    /**
-     * Конструктор класса Копейщик
-     * @param name
-     * @param level
-     * @param hp
-     * @param maxHp
-     * @param stamina
-     */
-    public Pikeman(String name, Integer level, Integer hp, Integer maxHp, Integer stamina) {
-        super(name, level, hp, maxHp);
-        this.stamina = stamina;
+    public Pikeman(String name, Integer level, Integer hp, Integer maxHp, Integer bullet, Integer stamina) {
+        super(name, level, hp, maxHp, bullet, stamina);
     }
 
+    public  Pikeman(String name){
+        super(name,1,13,33,1,1);
+        super.name = name;
+    }
+    @Override
     public String getInfo(){
-        return String.format("%s Stamina: %d",super.getInfo(),this.stamina);
+        return String.format("Я Копейщик! %s Stamina: %d",super.getInfo(),super.stamina);
+    }
+
+    @Override
+    public void step() {
     }
 
     public void getPike(){

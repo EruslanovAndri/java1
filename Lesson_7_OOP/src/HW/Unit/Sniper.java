@@ -4,33 +4,22 @@ package HW.Unit;
  * Класс снайпер
  */
 
-public class Sniper extends Hero{
-
-    /**
-     * Поле класса Снайпер
-     */
-    Integer precision;
-
-
-    /**
-     * Конструктор класса Снайпер
-     * @param name
-     * @param level
-     * @param hp
-     * @param maxHp
-     * @param precision
-     */
-    public Sniper(String name, Integer level, Integer hp, Integer maxHp, Integer precision) {
-        super(name, level, hp, maxHp);
-        this.precision = precision;
+public class Sniper extends Shooter{
+    public Sniper(String name, Integer level, Integer hp, Integer maxHp, Integer bullet, Integer stamina) {
+        super(name, level, hp, maxHp, bullet, stamina);
     }
 
-    public String getInfo(){
-        return String.format("%s Precision: %d",super.getInfo(),this.precision);
+    public Sniper(String name){
+        super(name,2,2,2,2,2);
     }
 
-    public void attack(){
 
+   @Override
+   public String getInfo(){
+        return String.format("Я Снайпер! %s Bullet: %s Stamina: %s",super.getInfo(),super.bullet,super.stamina);
     }
 
+    @Override
+    public void step() {
+    }
 }

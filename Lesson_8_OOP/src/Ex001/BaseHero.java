@@ -2,7 +2,7 @@ package Ex001;
 
 import java.util.Random;
 
-public class BaseHero {
+public abstract class BaseHero {
     protected static int number;
     protected static Random r;
 

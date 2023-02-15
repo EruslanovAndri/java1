@@ -1,3 +1,4 @@
+// HW 1
 //1.Крестьянин,
 //2. разбойник,
 //3. снайпер,
@@ -13,33 +14,50 @@
 //и расширяющие абстрактный(обобщённый) класс.
 //В основной программе создать по одному экземпляру каждого типа персонажей.
 
+// HW 2
+//Доработать дерево классов так, чтобы экземпляры классов создавались конструктором
+//с именем в параметре а остальные параметры инициализировали сами в зависимости от персонажа.
+//Добавить файл интерфейса в котором описать два метода, void step(); и String getInfo();
+//Добавить реализацию интерфейса в ваш коренной абстрактный класс. Переопределить getInfo так,
+//чтобы он возвращал строки:"Я крестьянин", "Я снайпер" и так далее в зависимости от типа персонажа.
+//В основном классе создать список и добавить в него 10 случаных персонажей.
+//Пройти по списку и вывести строку возвращаемую getInfo.
+
+
+
+
 package HW;
 
 import HW.Unit.*;
 
+import java.util.Random;
+
 public class Main{
     public static void main(String[] args) {
-        Bandit bandit = new Bandit("Bob",1,100,100, true);
+        Monk monk = new Monk(getName());
+        System.out.println(monk.getInfo());
+
+        Warlock warlock = new Warlock(getName());
+        System.out.println(warlock.getInfo());
+
+        CrossBowMan crossBowMan = new CrossBowMan(getName());
+        System.out.println(crossBowMan.getInfo());
+
+        Sniper sniper = new Sniper(getName());
+        System.out.println(sniper.getInfo());
+
+        Bandit bandit = new Bandit(getName());
         System.out.println(bandit.getInfo());
 
-        Crossbowman crossbowman = new Crossbowman("Max",1,90,120,25,35);
-        System.out.println(crossbowman.toString());
+        Farmer farmer =  new Farmer(getName());
+        System.out.println(farmer.getInfo());
 
-        Fermer fermer = new Fermer("Vik",1,75,120);
-        System.out.println(fermer.toString());
-
-        Monk monk = new Monk("Jack",1,99,200,45);
-        System.out.println(monk.toString());
-
-        Pikeman pikeman = new Pikeman("Piky",1,12,54,12);
-        System.out.println(pikeman.toString());
-
-        Sniper sniper = new Sniper("Goal",1,144,300,15);
-        System.out.println(sniper.toString());
-
-
-        Warlock warlock = new Warlock("John",1,36,123,33);
-        System.out.println(warlock.getInfo());
+        Pikeman pikeman = new Pikeman(getName());
+        System.out.println(pikeman.getInfo());
     }
 
+    private static String getName(){
+        String name = String.valueOf(Names.values()[new Random().nextInt(Names.values().length-1)]);
+        return name;
+    }
 }

@@ -23,13 +23,22 @@ public class Bandit extends Hero {
         this.hide = hide;
     }
 
-    public String getInfo(){
-        return String.format("%s Hide: %b",super.getInfo(),this.hide);
-
+    public Bandit(String name) {
+        super(name,1,10,10);
+        super.name = name;
     }
 
 
 
 
+    @Override
+    public String getInfo(){
+        return String.format("Я Бандит! %s Hide: %b",super.getInfo(),this.hide);
 
+    }
+
+    @Override
+    public void step() {
+
+    }
 }

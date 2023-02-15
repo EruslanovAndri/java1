@@ -1,7 +1,7 @@
-package Ex003.alliance;
-
-import Lesson_08.Ex003.*;
+//package Ex003.alliance;
 //
-//public class Gnome extends Priest{
-//
-//}
+//import Lesson_08.Ex003.*;
+////
+////public class Gnome extends Priest{
+////
+////}
