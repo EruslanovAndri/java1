@@ -30,6 +30,7 @@ package HW;
 
 import HW.Unit.*;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Main{
@@ -54,10 +55,43 @@ public class Main{
 
         Pikeman pikeman = new Pikeman(getName());
         System.out.println(pikeman.getInfo());
+
+        ArrayList<Hero> list = new ArrayList<Hero>();
+        Random rnd = new Random();
+        while (list.size() < 10){
+            Integer r = rnd.nextInt(1,8);
+            if(r == 1){
+                list.add(new Monk(getName()));
+            }
+            if(r == 2){
+                list.add(new Warlock(getName()));
+            }
+            if(r == 3){
+                list.add(new CrossBowMan(getName()));
+            }
+            if(r == 4){
+                list.add(new Sniper(getName()));
+            }
+            if(r == 5){
+                list.add(new Bandit(getName()));
+            }
+            if(r == 6){
+                list.add(new Farmer(getName()));
+            }
+            else{
+                list.add(new Pikeman(getName()));
+            }
+        }
+        System.out.println("------------------------------------------------");
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i).getInfo());
+        }
+
     }
 
     private static String getName(){
         String name = String.valueOf(Names.values()[new Random().nextInt(Names.values().length-1)]);
         return name;
     }
+
 }

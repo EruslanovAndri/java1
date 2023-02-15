@@ -18,7 +18,7 @@ public  class Monk extends Mgician {
 
    @Override
    public String getInfo(){
-        return String.format("Я Монах! %s Magic: %d",super.getInfo(),this.magic);
+        return  String.format("Я Монах! %s Magic: %d",super.getInfo(),this.magic);
     }
 
     @Override

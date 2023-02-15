@@ -1,5 +1,7 @@
 package HW.Unit;
 
+import java.util.ArrayList;
+
 /**
  * Общий обстрактный класс Hero
  */
@@ -22,24 +24,16 @@ public abstract class  Hero implements GameInterface {
     }
 
     /**
-     * Переопределение базового метода toString под свою задачу.
-     * @return
+     * Переопределил методы из интерфейса в основной класс!
      */
-
-//    public String  getInfo(){
-//        return String.format("Name: %s Level: %d HP: %d MaxHp: %d",this.name,
-//                this.level,this.hp,this.maxHp);
-//    }
-
-
     @Override
     public void step() {
 
     }
-
     @Override
     public String getInfo() {
         return String.format("Name: %s Level: %d HP: %d MaxHp: %d",this.name,
                 this.level,this.hp,this.maxHp);
     }
+
 }
