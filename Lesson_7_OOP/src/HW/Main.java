@@ -58,7 +58,8 @@ public class Main{
 
         ArrayList<Hero> list = new ArrayList<Hero>();
         Random rnd = new Random();
-        while (list.size() < 10){
+        int array_size = 10;
+        while (list.size() < array_size){
             Integer r = rnd.nextInt(1,8);
             if(r == 1){
                 list.add(new Monk(getName()));
