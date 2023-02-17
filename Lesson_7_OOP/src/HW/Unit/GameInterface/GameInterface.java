@@ -1,4 +1,4 @@
-package HW.Unit;
+package HW.Unit.GameInterface;
 
 public interface GameInterface {
 

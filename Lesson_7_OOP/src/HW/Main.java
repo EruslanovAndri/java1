@@ -29,65 +29,137 @@
 package HW;
 
 import HW.Unit.*;
+import HW.Unit.Enumerator.Names;
+import HW.Unit.Magicains.Monk;
+import HW.Unit.Magicains.Warlock;
+import HW.Unit.Shooters.CrossBowMan;
+import HW.Unit.Shooters.Pikeman;
+import HW.Unit.Shooters.Sniper;
+import HW.Unit.SuperClass.Hero;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 public class Main{
     public static void main(String[] args) {
-        Monk monk = new Monk(getName());
-        System.out.println(monk.getInfo());
 
-        Warlock warlock = new Warlock(getName());
-        System.out.println(warlock.getInfo());
+        ArrayList<Hero> team1 = new ArrayList<>();
+        ArrayList<Hero> team2 = new ArrayList<>();
+        ArrayList<Hero> teams = new ArrayList<>();
+        createTeam(team1,1,5);
+        createTeam(team2,5,8);
+        teams.addAll(team1);
+        teams.addAll(team2);
 
-        CrossBowMan crossBowMan = new CrossBowMan(getName());
-        System.out.println(crossBowMan.getInfo());
 
-        Sniper sniper = new Sniper(getName());
-        System.out.println(sniper.getInfo());
 
-        Bandit bandit = new Bandit(getName());
-        System.out.println(bandit.getInfo());
+        teams.sort(new Comparator<Hero>() {
+            @Override
+            public int compare(Hero o1, Hero o2) {
+                return o1.getSpeed() - o2.getSpeed();
+            }
+        });
 
-        Farmer farmer =  new Farmer(getName());
-        System.out.println(farmer.getInfo());
+        for (int i = 0; i < teams.size(); i++) {
+            System.out.println(teams.get(i).getInfo());
+        }
 
-        Pikeman pikeman = new Pikeman(getName());
-        System.out.println(pikeman.getInfo());
+//        System.out.println(team1);
+//        System.out.println(team2);
+//        Monk monk = new Monk(getName());
+//        System.out.println(monk.getInfo());
+//
+//
+//        Warlock warlock = new Warlock(getName());
+//        System.out.println(warlock.getInfo());
+//
+//        CrossBowMan crossBowMan = new CrossBowMan(getName());
+//        System.out.println(crossBowMan.getInfo());
+//
+//        Sniper sniper = new Sniper(getName());
+//        System.out.println(sniper.getInfo());
+//
+//        Bandit bandit = new Bandit(getName());
+//        System.out.println(bandit.getInfo());
+//
+//        Farmer farmer =  new Farmer(getName());
+//        System.out.println(farmer.getInfo());
+//
+//        Pikeman pikeman = new Pikeman(getName());
+//        System.out.println(pikeman.getInfo());
 
         ArrayList<Hero> list = new ArrayList<Hero>();
         Random rnd = new Random();
         int array_size = 10;
         while (list.size() < array_size){
             Integer r = rnd.nextInt(1,8);
-            if(r == 1){
-                list.add(new Monk(getName()));
-            }
-            if(r == 2){
-                list.add(new Warlock(getName()));
-            }
-            if(r == 3){
-                list.add(new CrossBowMan(getName()));
-            }
-            if(r == 4){
-                list.add(new Sniper(getName()));
-            }
-            if(r == 5){
-                list.add(new Bandit(getName()));
-            }
-            if(r == 6){
-                list.add(new Farmer(getName()));
-            }
-            else{
-                list.add(new Pikeman(getName()));
+            switch (r){
+                case (1):
+                    list.add(new Monk(getName()));
+                    break;
+                case (2):
+                    list.add(new Warlock(getName()));
+                    break;
+                case (3):
+                    list.add(new CrossBowMan(getName()));
+                    break;
+                case (4):
+                    list.add(new Sniper(getName()));
+                    break;
+                case (5):
+                    list.add(new Bandit(getName()));
+                    break;
+                case (6):
+                    list.add(new Farmer(getName()));
+                    break;
+                default:
+                    list.add(new Pikeman(getName()));
+                    break;
             }
         }
-        System.out.println("------------------------------------------------");
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).getInfo());
-        }
+//        System.out.println("------------------------------------------------");
+//        for (int i = 0; i < list.size(); i++) {
+//            System.out.println(list.get(i).getInfo());
+//        }
 
+
+    }
+
+    public  static void createTeam(ArrayList targetList , int start , int end ){
+        int array_size = 10;
+        Random rnd = new Random();
+        while (targetList.size() < array_size){
+            int r = rnd.nextInt(start,end);
+            switch (r){
+                case (1):
+                    targetList.add(new Bandit(getName()));
+                    break;
+                case (2):
+                    targetList.add(new Sniper(getName()));
+                    break;
+                case (3):
+                    targetList.add(new Warlock(getName()));
+                    break;
+                case (4):
+                    targetList.add(new Farmer(getName()));
+
+                case (5):
+                    targetList.add(new Pikeman(getName()));
+                    break;
+                case (6):
+                    targetList.add(new CrossBowMan(getName()));
+                    break;
+                case (7):
+                    targetList.add(new Monk(getName()));
+                    break;
+            }
+
+
+            // Сделать два списка 1 Крестьянин	Разбойник	Снайпер	Колдун
+            // 2 крестьянин копейщик	арбалетчик	монах
+
+        }
     }
 
     private static String getName(){

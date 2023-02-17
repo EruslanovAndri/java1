@@ -1,6 +1,6 @@
-package HW.Unit;
+package HW.Unit.SuperClass;
 
-import java.util.ArrayList;
+import HW.Unit.GameInterface.GameInterface;
 
 /**
  * Общий обстрактный класс Hero
@@ -8,7 +8,14 @@ import java.util.ArrayList;
 public abstract class  Hero implements GameInterface {
 
    protected String name;
-   protected Integer level,hp,maxHp;
+   protected Integer level,maxHp;
+   protected Integer speed;
+   protected  Float hp;
+
+
+
+   protected Integer posX;
+   protected Integer posY;
     /**
      * Конструктор общего класса.
      * @param name
@@ -16,11 +23,12 @@ public abstract class  Hero implements GameInterface {
      * @param hp
      * @param maxHp
      */
-    public Hero(String name, Integer level, Integer hp, Integer maxHp) {
+    public Hero(String name, Integer level, Float hp, Integer maxHp,Integer speed) {
         this.name = name;
         this.level = level;
         this.hp = hp;
         this.maxHp = maxHp;
+        this.speed = speed;
     }
 
     /**
@@ -32,8 +40,11 @@ public abstract class  Hero implements GameInterface {
     }
     @Override
     public String getInfo() {
-        return String.format("Name: %s Level: %d HP: %d MaxHp: %d",this.name,
-                this.level,this.hp,this.maxHp);
+        return String.format("Name: %s Level: %d HP: %f MaxHp: %d Speed: %d",this.name,
+                this.level,this.hp,this.maxHp,this.speed);
     }
 
+    public Integer getSpeed() {
+        return speed;
+    }
 }
