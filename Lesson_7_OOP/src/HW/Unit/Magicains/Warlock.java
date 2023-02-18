@@ -11,16 +11,13 @@ public class Warlock extends Mgician {
     }
 
     public Warlock(String name){
-        super(name,1,1.1f,1,1,4);
+        super(name,1,1.1f,1,10,4);
         super.name = name;
     }
 
    @Override
    public String getInfo(){
-        return String.format("Я Колдун! %s Magic: %d Speed: %s",super.getInfo(),this.magic,super.speed);
+        return String.format("Колдун: %s Magic: %s Speed: %s",super.getInfo(),this.magic,super.speed);
     }
 
-    @Override
-    public void step() {
-    }
 }

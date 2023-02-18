@@ -47,10 +47,16 @@ public class Main{
         ArrayList<Hero> team1 = new ArrayList<>();
         ArrayList<Hero> team2 = new ArrayList<>();
         ArrayList<Hero> teams = new ArrayList<>();
+
+        printingLine();
+        printingHeaders();
         createTeam(team1,1,5);
-        createTeam(team2,5,8);
-        teams.addAll(team1);
-        teams.addAll(team2);
+
+
+//        createTeam(team2,5,8);
+//        teams.addAll(team1);
+//        teams.addAll(team2);
+//        team1.get(0).step();
 
 
 
@@ -61,8 +67,8 @@ public class Main{
             }
         });
 
-        for (int i = 0; i < teams.size(); i++) {
-            System.out.println(teams.get(i).getInfo());
+        for (int i = 0; i < team1.size(); i++) {
+            System.out.println(team1.get(i).getInfo());
         }
 
 //        System.out.println(team1);
@@ -165,6 +171,20 @@ public class Main{
     private static String getName(){
         String name = String.valueOf(Names.values()[new Random().nextInt(Names.values().length-1)]);
         return name;
+
+
+
     }
+
+    static void printingLine(){
+        System.out.println("******************************************************************************");
+    }
+
+    static void printingHeaders(){
+        System.out.println("****************************************************************************");
+        System.out.println("|Class:     Name:      Level:      Hp:      MaxHp:      Bullet:    Speed: |");
+        System.out.println("****************************************************************************");
+    }
+
 
 }

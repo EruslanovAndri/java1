@@ -7,34 +7,39 @@ import HW.Unit.SuperClass.Hero;
  */
 public class Farmer extends Hero {
 
-    /**
-     * Конструктор класса крестьянин
-     * @param name
-     * @param level
-     * @param hp
-     * @param maxHp
-     */
-    public Farmer(String name, Integer level, Float hp, Integer maxHp,Integer speed) {
-        super(name, level, hp, maxHp,speed);
+
+    Integer help;
+
+    public Farmer(String name, Integer level, Float hp, Integer maxHp, Integer speed) {
+        super(name, level, hp, maxHp, speed);
     }
+
 
     public Farmer(String name){
         super(name,1,20.1f,20,5);
         super.name = name;
+        this.help = 4;
     }
 
     @Override
     public String getInfo(){
-        return String.format("Я Фермер! %s Speed: %s ",super.getInfo(),super.speed);
+        return String.format("Фермер: %s \t Help: %d \tSpeed: %s ",super.getInfo(),this.help,super.speed);
     }
+
 
     @Override
     public void step() {
-
+        int help = getHelp();
+        if(help>0){
+            setHelp(help-1);
+        }
     }
 
-    public void help(){
-
+    public Integer getHelp() {
+        return help;
     }
 
+    public void setHelp(Integer help) {
+        this.help = help;
+    }
 }

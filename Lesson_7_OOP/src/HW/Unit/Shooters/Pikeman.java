@@ -7,24 +7,17 @@ import HW.Unit.Shooters.Shooter;
  */
 public class Pikeman extends Shooter {
 
-    public Pikeman(String name, Integer level, Float hp, Integer maxHp, Integer bullet, Integer stamina,Integer speed) {
-        super(name, level, hp, maxHp, bullet, stamina,speed);
+    public Pikeman(String name, Integer level, Float hp, Integer maxHp, Integer bullet,Integer speed) {
+        super(name, level, hp, maxHp, bullet,speed);
     }
 
     public  Pikeman(String name){
-        super(name,1,13.1f,33,1,1,4);
+        super(name,1,13.1f,33,11,1);
         super.name = name;
     }
     @Override
     public String getInfo(){
-        return String.format("Я Копейщик! %s Stamina: %d Speed: %s",super.getInfo(),super.stamina ,super.speed);
+        return String.format("Копейщик: %s Bullet: %d Speed: %d",super.getInfo(),super.bullet,super.speed);
     }
 
-    @Override
-    public void step() {
-    }
-
-    public void getPike(){
-
-    }
 }

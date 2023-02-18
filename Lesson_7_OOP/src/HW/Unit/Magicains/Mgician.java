@@ -9,4 +9,20 @@ public abstract class Mgician extends Hero {
         this.magic = magic;
     }
 
+
+    @Override
+    public void step() {
+        int magic = getMagic();
+        if(magic > 0){
+            setMagic(magic-1);
+        }
+    }
+
+    public Integer getMagic() {
+        return magic;
+    }
+
+    public void setMagic(Integer magic) {
+        this.magic = magic;
+    }
 }

@@ -7,21 +7,19 @@ import HW.Unit.Shooters.Shooter;
  */
 
 public class Sniper extends Shooter {
-    public Sniper(String name, Integer level, Float hp, Integer maxHp, Integer bullet, Integer stamina,Integer speed) {
-        super(name, level, hp, maxHp, bullet, stamina,speed);
+    public Sniper(String name, Integer level, Float hp, Integer maxHp, Integer bullet,Integer speed) {
+        super(name, level, hp, maxHp, bullet,speed);
     }
 
     public Sniper(String name){
-        super(name,2,2.2f,2,2,2,4);
+        super(name,2,2.2f,2,2,2);
     }
 
 
    @Override
    public String getInfo(){
-        return String.format("Я Снайпер! %s Bullet: %s Stamina: %s",super.getInfo(),super.bullet,super.stamina);
+        return String.format("Снайпер: %s Bullet: %s Speed: %d",super.getInfo(),super.bullet,super.speed);
     }
 
-    @Override
-    public void step() {
-    }
+
 }

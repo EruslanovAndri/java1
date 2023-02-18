@@ -40,11 +40,12 @@ public abstract class  Hero implements GameInterface {
     }
     @Override
     public String getInfo() {
-        return String.format("Name: %s Level: %d HP: %f MaxHp: %d Speed: %d",this.name,
-                this.level,this.hp,this.maxHp,this.speed);
+        return String.format("\t%s\t Level: %d\t HP: %f \t MaxHp: %d \t",this.name,this.level,this.hp,this.maxHp);
     }
 
     public Integer getSpeed() {
         return speed;
     }
+
+
 }
