@@ -2,16 +2,18 @@ package Shooters;
 
 public class CrossBowMan extends Shooter{
 
-    public CrossBowMan(String name, Float hp, int maxHp, int speed, int tool) {
-        super(name, hp, maxHp, speed, tool);
+    public CrossBowMan(String name, Float hp, int maxHp, int speed, int attack, int defence, int damage) {
+        super(name, hp, maxHp, speed, attack, defence,damage);
     }
 
     public CrossBowMan(String name) {
-        super(name,22.5f, rnd.nextInt(20,66),6,150 );
+        super(name,10.0f,rnd.nextInt(15,77),4,6,3, rnd.nextInt(1,4));
+        super.name = name;
+
     }
 
     @Override
     public String getInfo() {
-        return String.format("Арб: %s Tool: %d ",super.getInfo(),super.tool);
+        return String.format("CrossBowMan: Name: %s Attack: %d Defence: %s Damage: %s",super.getInfo(),super.attack,super.defence,super.damage);
     }
 }

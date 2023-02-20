@@ -1,5 +1,6 @@
 package SuperClass;
 
+import Enumerats.Names;
 import GameInterface.GameInterface;
 
 import java.util.Random;
@@ -9,10 +10,19 @@ public abstract class Hero implements GameInterface {
     protected static int number;
     protected static Random rnd;
 
-    protected static String name;
-    protected static Float hp;
-    protected static int maxHp;
-    protected static int speed;
+    protected String name;
+    protected  Float hp;
+    protected  int maxHp;
+    protected  int speed;
+    protected int attack;
+    protected int defence;
+    protected int damage;
+    protected int delivery;
+
+    protected int shoot;
+
+
+
 
 
     static{
@@ -20,20 +30,41 @@ public abstract class Hero implements GameInterface {
         Hero.rnd = new Random();
     }
 
-    public Hero(String name, Float hp, int maxHp,int speed) {
+
+
+    public Hero(String name, Float hp, int maxHp, int speed,
+                int attack, int defence, int delivery, int damage, int shoot) {
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
         this.speed = speed;
+        this.attack = attack;
+        this.defence = defence;
+        this.delivery = delivery;
+        this.damage = damage;
+        this.shoot = shoot;
+
+
+    }
+
+    public Hero(String name, float hp, int maxHp, int speed,int attack,int defence,int delivery,int damage) {
+        this.name = name;
+    }
+
+    public Hero(String name, Float hp, int maxHp, int speed, int attack, int defence, int damage) {
+        this.name = name;
+        this.hp = hp;
+        this.maxHp = maxHp;
 
     }
 
     @Override
     public String getInfo(){
-        return String.format("Name: %s HP: %f MaxHp: %s Speed: %d",this.name,
-                this.hp,this.maxHp,this.speed);
+        return String.format("%s HP: %f MaxHp: %s Speed: %d",this.name,this.hp,this.maxHp,this.speed);
 
     }
+
+
 
     @Override
     public Integer getSpeed() {
@@ -44,4 +75,22 @@ public abstract class Hero implements GameInterface {
     public void step() {
 
     }
+
+
+    public static int getNumber() {
+        return number;
+    }
+
+    public static Random getRnd() {
+        return rnd;
+    }
+
+
+    public Float getHp() {
+        return hp;
+    }
+
+
+
+
 }

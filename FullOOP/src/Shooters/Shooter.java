@@ -3,13 +3,15 @@ package Shooters;
 import SuperClass.Hero;
 
 public abstract class Shooter extends Hero {
-    /**
-     * кол-во пуль,стрел,копий.
-     */
-    protected int tool;
 
-    public Shooter(String name, Float hp, int maxHp, int speed, int tool) {
-        super(name, hp, maxHp, speed);
-        this.tool = tool;
+    public Shooter(String name, Float hp, int maxHp, int speed, int attack, int defence, int damage) {
+        super(name, hp, maxHp, speed, attack, defence,damage);
+        super.speed = speed;
+        super.attack = attack;
+        super.defence = defence;
+        super.damage = damage;
+
+
     }
+
 }

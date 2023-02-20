@@ -51,6 +51,8 @@ public class Main{
         printingLine();
         printingHeaders();
         createTeam(team1,1,5);
+        createTeam(team2,4,8);
+        System.out.println("---------");
 
 
 //        createTeam(team2,5,8);
@@ -68,7 +70,7 @@ public class Main{
         });
 
         for (int i = 0; i < team1.size(); i++) {
-            System.out.println(team1.get(i).getInfo());
+            System.out.println("HHHH" + team1.get(i).getInfo());
         }
 
 //        System.out.println(team1);
@@ -98,7 +100,7 @@ public class Main{
         ArrayList<Hero> list = new ArrayList<Hero>();
         Random rnd = new Random();
         int array_size = 10;
-        while (list.size() < array_size){
+        while (list.size()<array_size){
             Integer r = rnd.nextInt(1,8);
             switch (r){
                 case (1):

@@ -4,20 +4,26 @@ import SuperClass.Hero;
 
 public class Bandit extends Hero {
 
-    protected int gold;
 
-    public Bandit(String name, Float hp, int maxHp, int speed,int gold) {
-        super(name, hp, maxHp, speed);
-        this.gold = gold;
+    public Bandit(String name, Float hp, int maxHp, int speed, int attack, int defence, int damage) {
+        super(name, hp, maxHp,attack, defence, damage,speed);
+        super.speed = speed;
+        super.attack = attack;
+
+
     }
 
     public Bandit(String name) {
-        super(name,11.5f,rnd.nextInt(33,78),6);
-        this.gold = 20;
+        super(name,10.0f, rnd.nextInt(15,45),6,8,3, rnd.nextInt(2,5) );
+        super.name = name;
+        super.speed = speed;
+        super.attack = attack;
+
     }
 
     @Override
     public String getInfo() {
-        return String.format("Бан: %s Gold: %s",super.getInfo(),this.gold);
+        return String.format("Bandit:  Name: %s Attack: %s  Defence: %s Damage: %s",super.getInfo(),super.attack,super.defence,super.damage);
     }
+
 }
