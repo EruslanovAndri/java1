@@ -1,6 +1,4 @@
-package Magicians;
-
-import SuperClass.Hero;
+package Unit;
 
 public abstract class Magician extends Hero {
 

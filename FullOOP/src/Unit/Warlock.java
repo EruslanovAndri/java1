@@ -1,4 +1,4 @@
-package Magicians;
+package Unit;
 
 public class Warlock extends Magician{
 

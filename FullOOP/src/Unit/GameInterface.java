@@ -1,4 +1,6 @@
-package GameInterface;
+package Unit;
+
+import java.util.ArrayList;
 
 public interface GameInterface {
 
@@ -7,4 +9,6 @@ public interface GameInterface {
     StringBuilder getInfo();
 
     Integer getSpeed();
+
+
 }

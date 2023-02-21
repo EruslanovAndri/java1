@@ -1,15 +1,13 @@
-import Bandit.Bandit;
-import Enumerats.Names;
-import Farmer.Farmer;
-import GameInterface.GameInterface;
-import Magicians.Monk;
-import Magicians.Warlock;
-import Shooters.CrossBowMan;
-import Shooters.Pikeman;
-import Shooters.Sniper;
-import SuperClass.Hero;
+import Unit.Bandit;
+import Unit.Names;
+import Unit.Farmer;
+import Unit.Monk;
+import Unit.Warlock;
+import Unit.CrossBowMan;
+import Unit.Pikeman;
+import Unit.Sniper;
+import Unit.Hero;
 
-import javax.naming.Name;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -130,6 +128,8 @@ public class Main {
         sortTeam(teams);
         System.out.println("------------------Team sorted-------------");
         printTeam(teams);
+//        teams.forEach(n->n.step(team1,team2));
+
 
 
 
@@ -162,7 +162,7 @@ public class Main {
                     list.add(new Pikeman(getName()));
                     break;
                 case (6):
-                    list.add(new CrossBowMan(getName()));
+                    list.add(new CrossBowMan(getName(),1,1));
                     break;
                 case (7):
                     list.add(new Monk(getName()));

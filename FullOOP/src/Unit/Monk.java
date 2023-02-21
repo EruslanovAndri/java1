@@ -1,6 +1,4 @@
-package Magicians;
-
-import Farmer.Farmer;
+package Unit;
 
 public class Monk extends Magician{
 

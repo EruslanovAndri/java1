@@ -1,6 +1,4 @@
-package Bandit;
-
-import SuperClass.Hero;
+package Unit;
 
 public class Bandit extends Hero {
 

@@ -1,17 +1,14 @@
-package SuperClass;
+package Unit;
 
-import Bandit.Bandit;
-import Enumerats.Names;
-import GameInterface.GameInterface;
-
+import java.util.ArrayList;
 import java.util.Random;
 
-public abstract class Hero implements GameInterface {
+public abstract class Hero  implements GameInterface {
 
     protected static int number;
     protected static Random rnd;
 
-    protected String name;
+    public String name;
     protected  Float hp;
     protected  int maxHp;
     protected  int speed;
@@ -32,9 +29,21 @@ public abstract class Hero implements GameInterface {
     }
 
 
-
     public Hero(String name, Float hp, int maxHp, int speed,
-                int attack, int defence, int delivery, int damage, int shoot) {
+                int attack, int defence, int damage, int delivery, int shoot) {
+        this.name = name;
+        this.hp = hp;
+        this.maxHp = maxHp;
+        this.speed = speed;
+        this.attack = attack;
+        this.defence = defence;
+        this.damage = damage;
+        this.delivery = delivery;
+        this.shoot = shoot;
+    }
+
+
+    public Hero(String name, float hp, int maxHp, int speed,int attack,int defence,int delivery,int damage) {
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
@@ -43,13 +52,6 @@ public abstract class Hero implements GameInterface {
         this.defence = defence;
         this.delivery = delivery;
         this.damage = damage;
-        this.shoot = shoot;
-
-
-    }
-
-    public Hero(String name, float hp, int maxHp, int speed,int attack,int defence,int delivery,int damage) {
-        this.name = name;
     }
 
     public Hero(String name, Float hp, int maxHp, int speed, int attack, int defence, int damage) {
@@ -78,7 +80,6 @@ public abstract class Hero implements GameInterface {
     public void step() {
 
     }
-
 
     public static int getNumber() {
         return number;

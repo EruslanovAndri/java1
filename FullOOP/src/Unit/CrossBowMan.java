@@ -1,6 +1,4 @@
-package Shooters;
-
-import Magicians.Warlock;
+package Unit;
 
 public class CrossBowMan extends Shooter{
 
@@ -8,11 +6,16 @@ public class CrossBowMan extends Shooter{
         super(name, hp, maxHp, speed, attack, defence,damage);
     }
 
-    public CrossBowMan(String name) {
+
+
+    public CrossBowMan(String name, Integer posX, Integer posY) {
         super(name,10.0f,rnd.nextInt(15,77),4,6,3, rnd.nextInt(1,4));
         super.name = name;
 
+
     }
+
+
 
 
     @Override

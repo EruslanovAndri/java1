@@ -1,4 +1,4 @@
-package Shooters;
+package Unit;
 
 public class Pikeman extends Shooter {
 
