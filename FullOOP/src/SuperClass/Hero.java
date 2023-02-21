@@ -1,5 +1,6 @@
 package SuperClass;
 
+import Bandit.Bandit;
 import Enumerats.Names;
 import GameInterface.GameInterface;
 
@@ -58,13 +59,11 @@ public abstract class Hero implements GameInterface {
 
     }
 
-    @Override
-    public String getInfo(){
-        return String.format("%s HP: %f MaxHp: %s Speed: %d",this.name,this.hp,this.maxHp,this.speed);
 
-    }
-
-
+//    @Override
+//    public StringBuilder getInfo() {
+//        return null;
+//    }
 
     @Override
     public Integer getSpeed() {

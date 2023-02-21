@@ -12,8 +12,16 @@ public class Pikeman extends Shooter {
     }
 
 
+
     @Override
-    public String getInfo() {
-        return String.format("PikeMan: Name: %s Attack: %d Defence: %s Damage: %s",super.getInfo(),super.attack,super.defence,super.damage);
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("PikeMan: \t").append(Pikeman.super.name)
+                .append("\t| HP: \t").append(Pikeman.super.hp)
+                .append("\t| MaxHP: \t").append(Pikeman.super.maxHp)
+                .append("\t| Speed: \t").append(Pikeman.super.speed)
+                .append("\t| Attack: \t").append(Pikeman.super.attack)
+                .append("\t| Defence: \t").append(Pikeman.super.defence)
+                .append("\t| Damage: \t").append(Pikeman.super.damage);
     }
 }

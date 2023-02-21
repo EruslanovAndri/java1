@@ -12,11 +12,17 @@ public class Warlock extends Magician{
     }
 
 
-
-
     @Override
-    public String getInfo() {
-        return String.format("Warlock: Name: %s Attack: %s Defence: %s Damage: %s",super.getInfo(),super.attack,super.defence,super.damage);
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("Warlock: \t").append(Warlock.super.name)
+                .append("\t| HP: \t").append(Warlock.super.hp)
+                .append("\t| MaxHP: \t").append(Warlock.super.maxHp)
+                .append("\t| Speed: \t").append(Warlock.super.speed)
+                .append("\t| Attack: \t").append(Warlock.super.attack)
+                .append("\t| Defence: \t").append(Warlock.super.defence)
+                .append("\t| Damage: \t").append(Warlock.super.damage)
+                .append("\t| Magic: \t").append(Warlock.super.getMagic());
     }
 
 }

@@ -13,9 +13,17 @@ public class Sniper extends Shooter{
 
     }
 
+
     @Override
-    public String getInfo() {
-        return String.format("Sniper: Name: %s Attack: %d Defence: %s Damage: %s",super.getInfo(),super.attack,super.defence,super.damage);
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("Sniper: \t").append(Sniper.super.name)
+                .append("\t| HP: \t").append(Sniper.super.hp)
+                .append("\t| MaxHP: \t").append(Sniper.super.maxHp)
+                .append("\t| Speed: \t").append(Sniper.super.speed)
+                .append("\t| Attack: \t").append(Sniper.super.attack)
+                .append("\t| Defence: \t").append(Sniper.super.defence)
+                .append("\t| Damage: \t").append(Sniper.super.damage);
     }
 
 }

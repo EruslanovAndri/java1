@@ -1,5 +1,7 @@
 package Magicians;
 
+import Farmer.Farmer;
+
 public class Monk extends Magician{
 
     public Monk(String name, Float hp, int maxHp, int attack, int defence, int damage,int speed, int magic) {
@@ -11,9 +13,18 @@ public class Monk extends Magician{
         super.name = name;
     }
 
+
     @Override
-    public String getInfo() {
-        return String.format("Monk: %s  Speed: %s Attack: %s Defence: %s",super.getInfo(),super.speed,super.attack,super.defence);
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("\tMonk: \t").append(Monk.super.name)
+                .append("\t| HP: \t").append(Monk.super.hp)
+                .append("\t| MaxHP: \t").append(Monk.super.maxHp)
+                .append("\t| Speed: \t").append(Monk.super.speed)
+                .append("\t| Attack: \t").append(Monk.super.attack)
+                .append("\t| Defence: \t").append(Monk.super.defence)
+                .append("\t| Damage: \t").append(Monk.super.damage)
+                .append("\t| Magic: \t").append(Monk.super.getMagic());
     }
 
 }
