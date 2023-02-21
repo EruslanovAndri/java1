@@ -56,14 +56,18 @@ public abstract class Hero implements GameInterface {
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
+        this.speed = speed;
+        this.attack = attack;
+        this.defence = defence;
+        this.damage = damage;
 
     }
 
 
-//    @Override
-//    public StringBuilder getInfo() {
-//        return null;
-//    }
+    @Override
+    public StringBuilder getInfo() {
+        return null;
+    }
 
     @Override
     public Integer getSpeed() {
