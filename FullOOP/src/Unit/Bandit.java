@@ -19,11 +19,11 @@ public class Bandit extends Hero {
     public StringBuilder getInfo() {
         StringBuilder builder = new StringBuilder();
         return builder.append("Bandit: \t").append(Bandit.super.name)
-                      .append("\t| HP: \t").append(Bandit.super.hp)
-                      .append("\t| MaxHP: \t").append(Bandit.super.maxHp)
-                      .append("\t| Speed: \t").append(Bandit.super.speed)
-                      .append("\t| Attack: \t").append(Bandit.super.attack)
-                      .append("\t| Defence: \t").append(Bandit.super.defence)
-                      .append("\t| Damage: \t").append(Bandit.super.damage);
+                .append("\t| HP: \t").append(Bandit.super.hp)
+                .append("\t| MaxHP: \t").append(Bandit.super.maxHp)
+                .append("\t| Speed: \t").append(Bandit.super.speed)
+                .append("\t| Attack: \t").append(Bandit.super.attack)
+                .append("\t| Defence: \t").append(Bandit.super.defence)
+                .append("\t| Damage: \t").append(Bandit.super.damage);
     }
 }

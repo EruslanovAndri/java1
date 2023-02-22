@@ -1,7 +1,6 @@
 package Unit;
 
 import java.util.ArrayList;
-
 public abstract class Shooter extends Hero {
 
     public Shooter(String name, Float hp, int maxHp, int speed, int attack, int defence, int damage) {
@@ -15,11 +14,4 @@ public abstract class Shooter extends Hero {
 
     }
 
-
-
-
-
-
-
 }
-

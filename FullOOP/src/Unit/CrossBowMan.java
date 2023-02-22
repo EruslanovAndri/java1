@@ -8,7 +8,7 @@ public class CrossBowMan extends Shooter{
 
 
 
-    public CrossBowMan(String name, Integer posX, Integer posY) {
+    public CrossBowMan(String name) {
         super(name,10.0f,rnd.nextInt(15,77),4,6,3, rnd.nextInt(1,4));
         super.name = name;
 

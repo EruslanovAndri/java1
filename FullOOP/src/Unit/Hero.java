@@ -89,12 +89,8 @@ public abstract class Hero  implements GameInterface {
         return rnd;
     }
 
-
     public Float getHp() {
         return hp;
     }
-
-
-
 
 }
