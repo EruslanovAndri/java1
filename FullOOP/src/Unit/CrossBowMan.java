@@ -2,12 +2,10 @@ package Unit;
 
 public class CrossBowMan extends Shooter{
 
-    public CrossBowMan(String name, Vector2D coords) {
-        super(name,10f,50,4,4,3,1,4, coords.posX, coords.posY, 12);
-        super.name = name;
-
-
+    public CrossBowMan(String name,Vector2D coords) {
+        super(name,12f,44,2,2,3,2,6, coords.posX, coords.posY, 10);
     }
+
     @Override
     public StringBuilder getInfo() {
         StringBuilder builder = new StringBuilder();

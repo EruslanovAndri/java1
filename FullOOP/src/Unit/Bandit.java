@@ -3,9 +3,7 @@ package Unit;
 public class Bandit extends Warrior {
 
     public Bandit(String name, Vector2D coords) {
-        super(name,10.0f,20,3,4,
-                2,2,4,1,1, coords.posX, coords.posY );
-        super.name = name;
+        super(name,11f,55,4,2,6,3,6, coords.posX, coords.posY);
     }
 
 

@@ -4,9 +4,8 @@ public class Monk extends Magician{
 
 
     public Monk(String name,Vector2D coords) {
-        super(name,30.0f,60,5,12,
-                7,-4,-4,1,2, coords.posX, coords.posY,5);
-        super.name = name;
+        super(name,11f,44,2,1,3,-5,-5, coords.posX, coords.posY, 50,50);
+
     }
 
 

@@ -32,7 +32,7 @@ public abstract class Hero  implements GameInterface {
 
     public Hero(String name, float hp, int maxHp, int speed,
                 int attack, int defence, int damageMin,
-                int damageMax, int delivery, int shoot,int posX,int posY) {
+                int damageMax,int posX,int posY) {
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
@@ -41,38 +41,8 @@ public abstract class Hero  implements GameInterface {
         this.defence = defence;
         this.damageMin = damageMin;
         this.damageMax = damageMax;
-        this.delivery = delivery;
-        this.shoot = shoot;
         coords = new Vector2D(posX,posY);
         this.state = "Stand";
-    }
-
-
-    public Hero(String name, float hp, int maxHp, int speed,
-                int attack,int defence,int delivery,int damageMin,int damageMax,int posX,int posY) {
-        this.name = name;
-        this.hp = hp;
-        this.maxHp = maxHp;
-        this.speed = speed;
-        this.attack = attack;
-        this.defence = defence;
-        this.delivery = delivery;
-        this.damageMin = damageMin;
-        this.damageMax = damageMax;
-        coords = new  Vector2D(posX,posY);
-    }
-
-    public Hero(String name, float hp, int maxHp, int speed, int attack, int defence, int damageMin,int damageMax,int posX,int posY) {
-        this.name = name;
-        this.hp = hp;
-        this.maxHp = maxHp;
-        this.speed = speed;
-        this.attack = attack;
-        this.defence = defence;
-        this.damageMin = damageMin;
-        this.damageMax = damageMax;
-        coords =  new Vector2D(posX,posY);
-
     }
 
 

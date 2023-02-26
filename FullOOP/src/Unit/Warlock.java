@@ -4,8 +4,7 @@ public class Warlock extends Magician{
 
 
     public Warlock(String name,Vector2D coords) {
-        super(name,30.0f,55,9,17,12,
-                -5,-5,1,2,coords.posX, coords.posY,5);
+        super(name,11f,33,4,2,5,-5,-5, coords.posX, coords.posY, 50,50);
     }
 
 

@@ -6,16 +6,10 @@ public class Farmer extends Hero {
 
     protected int arrows;
 
-
     public Farmer(String name, Vector2D coords) {
-        super(name,1.0f,20,3,
-                1,1,1,1, coords.posX, coords.posY);
+        super(name,11f,47,2,1,3,3,6, coords.posX, coords.posY);
         super.name = name;
         this.arrows = 1;
-
-
-
-
     }
 
     public int getArrowsFarmer() {
@@ -36,7 +30,7 @@ public class Farmer extends Hero {
         StringBuilder builder = new StringBuilder();
         return builder.append("Farmer: \t").append(Farmer.super.name)
                 .append("\t| HP: \t").append(Farmer.super.hp)
-                .append("\t    | MaxHP: \t").append(Farmer.super.maxHp)
+                .append("\t| MaxHP: \t").append(Farmer.super.maxHp)
 //                .append("\t| Speed: \t").append(Farmer.super.speed)
                 .append("\t| Arrows: \t").append(Farmer.this.arrows)
 //                .append("\t| Attack: \t").append(Farmer.super.attack)

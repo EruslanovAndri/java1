@@ -7,12 +7,10 @@ public abstract class Shooter extends Hero {
 
     private int arrows;
 
-    public Shooter(String name, float hp, int maxHp, int speed, int attack, int defence, int damageMin, int damageMax, int posX, int posY, int arrows) {
-        super(name, hp, maxHp, speed, attack, defence, damageMin, damageMax, posX, posY, arrows);
+    public Shooter(String name, float hp, int maxHp, int speed, int attack, int defence, int damageMin, int damageMax,int posX, int posY, int arrows) {
+        super(name, hp, maxHp, speed, attack, defence, damageMin, damageMax,posX, posY);
         this.arrows = arrows;
-        super.name = name;
     }
-
 
     public int getArrows() {
         return arrows;
@@ -28,10 +26,11 @@ public abstract class Shooter extends Hero {
     public void makeDamage(Hero unit) {
         float damage = unit.getDefence() - attack;
         if (damage < 0) {
-            setHp(unit.getHp() - damageMin);
+            setHp(unit.getHp() - damageMax);
             this.setArrows(this.getArrows() - 1);
         } else if (damage > 0) {
-            setHp(unit.getHp() - damageMax);
+            setHp(unit.getHp() - damageMin);
+            this.setArrows(this.getArrows()-1);
         } else {
             setHp(unit.getHp() - ((damageMax + damageMin) / 2));
             this.setArrows(this.getArrows() - 1);
@@ -57,6 +56,7 @@ public abstract class Shooter extends Hero {
                 }
                 arrows--;
             }
+
         }
     }
 
