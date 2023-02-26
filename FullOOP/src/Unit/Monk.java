@@ -2,12 +2,10 @@ package Unit;
 
 public class Monk extends Magician{
 
-    public Monk(String name, Float hp, int maxHp, int attack, int defence, int damage,int speed, int magic) {
-        super(name, hp, maxHp, attack, defence,damage,speed, magic);
-    }
 
-    public Monk(String name) {
-        super(name,30.0f,rnd.nextInt(12,47),5,12,7,-4,1);
+    public Monk(String name,Vector2D coords) {
+        super(name,30.0f,60,5,12,
+                7,-4,-4,1,2, coords.posX, coords.posY,5);
         super.name = name;
     }
 
@@ -15,14 +13,18 @@ public class Monk extends Magician{
     @Override
     public StringBuilder getInfo() {
         StringBuilder builder = new StringBuilder();
-        return builder.append("\tMonk: \t").append(Monk.super.name)
+        return builder.append("Monk:  \t\t").append(Monk.super.name)
                 .append("\t| HP: \t").append(Monk.super.hp)
                 .append("\t| MaxHP: \t").append(Monk.super.maxHp)
-                .append("\t| Speed: \t").append(Monk.super.speed)
-                .append("\t| Attack: \t").append(Monk.super.attack)
-                .append("\t| Defence: \t").append(Monk.super.defence)
-                .append("\t| Damage: \t").append(Monk.super.damage)
-                .append("\t| Magic: \t").append(Monk.super.getMagic());
+//                .append("\t| Speed: \t").append(Monk.super.speed)
+                .append("\t| Magic: \t").append(Monk.super.getMagic())
+//                .append("\t\t\t\t")
+//                .append("\t| Attack: \t").append(Monk.super.attack)
+//                .append("\t| Defence: \t").append(Monk.super.defence)
+//                .append("\t| DamageMin: \t").append(Monk.super.damageMin)
+//                .append("\t| DamageMax: \t").append(Monk.super.damageMax)
+
+                .append("\t| X.Y: \t").append("(").append(Monk.super.coords.posX).append(",").append(Monk.super.coords.posY).append(")");
     }
 
 }

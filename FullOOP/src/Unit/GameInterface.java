@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface GameInterface {
 
-    void step();
+    void step(ArrayList<Hero> team1,ArrayList<Hero> team2);
 
     StringBuilder getInfo();
 

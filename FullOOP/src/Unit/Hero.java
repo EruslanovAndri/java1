@@ -2,6 +2,7 @@ package Unit;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public abstract class Hero  implements GameInterface {
 
@@ -9,18 +10,19 @@ public abstract class Hero  implements GameInterface {
     protected static Random rnd;
 
     public String name;
-    protected  Float hp;
+    protected  float hp;
     protected  int maxHp;
     protected  int speed;
     protected int attack;
     protected int defence;
-    protected int damage;
+    protected int damageMin;
+    protected int damageMax;
+
     protected int delivery;
-
     protected int shoot;
+    protected Vector2D coords;
 
-
-
+    protected String state;
 
 
     static{
@@ -28,22 +30,26 @@ public abstract class Hero  implements GameInterface {
         Hero.rnd = new Random();
     }
 
-
-    public Hero(String name, Float hp, int maxHp, int speed,
-                int attack, int defence, int damage, int delivery, int shoot) {
+    public Hero(String name, float hp, int maxHp, int speed,
+                int attack, int defence, int damageMin,
+                int damageMax, int delivery, int shoot,int posX,int posY) {
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
         this.speed = speed;
         this.attack = attack;
         this.defence = defence;
-        this.damage = damage;
+        this.damageMin = damageMin;
+        this.damageMax = damageMax;
         this.delivery = delivery;
         this.shoot = shoot;
+        coords = new Vector2D(posX,posY);
+        this.state = "Stand";
     }
 
 
-    public Hero(String name, float hp, int maxHp, int speed,int attack,int defence,int delivery,int damage) {
+    public Hero(String name, float hp, int maxHp, int speed,
+                int attack,int defence,int delivery,int damageMin,int damageMax,int posX,int posY) {
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
@@ -51,17 +57,21 @@ public abstract class Hero  implements GameInterface {
         this.attack = attack;
         this.defence = defence;
         this.delivery = delivery;
-        this.damage = damage;
+        this.damageMin = damageMin;
+        this.damageMax = damageMax;
+        coords = new  Vector2D(posX,posY);
     }
 
-    public Hero(String name, Float hp, int maxHp, int speed, int attack, int defence, int damage) {
+    public Hero(String name, float hp, int maxHp, int speed, int attack, int defence, int damageMin,int damageMax,int posX,int posY) {
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
         this.speed = speed;
         this.attack = attack;
         this.defence = defence;
-        this.damage = damage;
+        this.damageMin = damageMin;
+        this.damageMax = damageMax;
+        coords =  new Vector2D(posX,posY);
 
     }
 
@@ -71,26 +81,77 @@ public abstract class Hero  implements GameInterface {
         return null;
     }
 
+
     @Override
     public Integer getSpeed() {
         return speed;
     }
 
     @Override
-    public void step() {
+    public void step(ArrayList<Hero> team1, ArrayList<Hero> team2) {
+
+    }
+    protected void getDamage(float damage) {
+        hp -= damage;
+        if(hp > maxHp) hp = maxHp;
+            if (hp <= 0) state = "Die";
+            }
+
+
+
+
+    public float getHp () { return this.hp; }
+
+
+    protected int findNearest(ArrayList<Hero> teams){
+        double min = 100;
+        int index = 0;
+        for (int i = 0; i < teams.size(); i++) {
+            if(min > coords.getDistance(teams.get(i).coords)){
+                index = i;
+                min = coords.getDistance(teams.get(i).coords);
+            }
+        }
+        return index;
 
     }
 
-    public static int getNumber() {
-        return number;
+    public int getDamageMin() {
+        return damageMin;
     }
 
-    public static Random getRnd() {
-        return rnd;
+    public int getMaxHp() {
+        return maxHp;
     }
 
-    public Float getHp() {
-        return hp;
+    public static ArrayList<Hero> findLive(ArrayList<Hero> teams){
+        ArrayList findLive = new ArrayList();
+        for (int i = 0; i < teams.size(); i++) {
+            if(teams.get(i).getHp() > 0){
+                findLive.add(teams.get(i));
+            }
+        }
+        return findLive;
     }
 
+    public void  makeDamage(Hero unit){
+            int damage = unit.getDefence() - attack;
+            float hp;
+            if(damage < 0) {
+                hp = unit.getHp() - damageMax;
+            } else if (damage > 0) {
+                hp = unit.getHp() - damageMin;
+            } else {
+                hp = unit.getHp() - ((damageMax+damageMin)/2);
+            }
+            unit.setHp(hp < 0 ? 0: hp);
+    }
+
+    public int getDefence() {
+        return defence;
+    }
+
+    public void setHp(Float hp) {
+        this.hp = hp;
+    }
 }
