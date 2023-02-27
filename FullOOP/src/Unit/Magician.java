@@ -38,7 +38,7 @@ public abstract class Magician extends Hero {
     protected void healing(Hero hero){
         float newHp = hero.getHp() - damageMax;
         if(newHp > hero.getMaxHp()){
-            hero.setHp((float)hero.getMaxHp());
+            hero.setHp((float)hero.getMaxHp()-18);
         } else {
             hero.setHp(newHp);
         }

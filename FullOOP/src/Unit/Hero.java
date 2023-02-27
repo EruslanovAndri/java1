@@ -2,7 +2,6 @@ package Unit;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public abstract class Hero  implements GameInterface {
 
@@ -18,8 +17,6 @@ public abstract class Hero  implements GameInterface {
     protected int damageMin;
     protected int damageMax;
 
-    protected int delivery;
-    protected int shoot;
     protected Vector2D coords;
 
     protected String state;
@@ -99,6 +96,9 @@ public abstract class Hero  implements GameInterface {
         for (int i = 0; i < teams.size(); i++) {
             if(teams.get(i).getHp() > 0){
                 findLive.add(teams.get(i));
+            }
+            else{
+                teams.get(i).state = "Die";
             }
         }
         return findLive;

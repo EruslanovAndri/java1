@@ -7,13 +7,12 @@ public class Farmer extends Hero {
     protected int arrows;
 
     public Farmer(String name, Vector2D coords) {
-        super(name,11f,47,2,1,3,3,6, coords.posX, coords.posY);
-        super.name = name;
+        super(name,11f,20,2,1,3,3,6, coords.posX, coords.posY);
         this.arrows = 1;
     }
 
     public int getArrowsFarmer() {
-        return this.arrows;
+        return arrows;
     }
 
     public void setArrowsFarmer(int arrows) {
@@ -31,15 +30,10 @@ public class Farmer extends Hero {
         return builder.append("Farmer: \t").append(Farmer.super.name)
                 .append("\t| HP: \t").append(Farmer.super.hp)
                 .append("\t| MaxHP: \t").append(Farmer.super.maxHp)
-//                .append("\t| Speed: \t").append(Farmer.super.speed)
                 .append("\t| Arrows: \t").append(Farmer.this.arrows)
-//                .append("\t| Attack: \t").append(Farmer.super.attack)
-//                .append("\t| Defence: \t").append(Farmer.super.defence)
-//                .append("\t| DamageMin: \t").append(Farmer.super.damageMin)
-//                .append("\t| DamageMax: \t").append(Farmer.super.damageMax)
-//                .append("\t| Delivery:\t").append(Farmer.super.delivery)
-
-                .append("\t| X.Y: \t").append("(").append(Farmer.super.coords.posX).append(",").append(Farmer.super.coords.posY).append(")");
+                .append("\t| X.Y: \t").append("(").append(Farmer.super.coords.posX)
+                .append(",").append(Farmer.super.coords.posY).append(")")
+                .append("\t State: \t").append(Farmer.super.state);
     }
 
 }
