@@ -11,29 +11,39 @@ public class Farmer extends Hero {
         this.arrows = 1;
     }
 
-    public int getArrowsFarmer() {
-        return arrows;
+    @Override
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder(getProfession());
+        return builder.append(": \t").append(name)
+                .append("\t| ATK:\t").append(attack)
+                .append("\t| HP:\t").append(hp)
+                .append(" \t|\t\t\t|")
+//                .append("  (X:Y): ")
+//                .append(coords.posX).append(":").append(coords.posY)
+                .append("\t|");
     }
 
-    public void setArrowsFarmer(int arrows) {
-        this.arrows = arrows;
+
+    @Override
+    public String toString() {
+        return "\uD83D\uDC69\u200D\uD83C\uDF3E" +
+                "\t| H:" + Math.round(hp) +
+                "\tD:" + defence +
+                " \tA:" + attack +
+                " \tDmg:" + Math.round(Math.abs((damageMin + damageMax) / 2)) + "\t" +
+                state;
+
+    }
+
+    @Override
+    public String getProfession() {
+        return "Фермер";
     }
 
     @Override
     public void step(ArrayList<Hero> team1, ArrayList<Hero> team2) {
-        arrows = 1;
-    }
-
-    @Override
-    public StringBuilder getInfo() {
-        StringBuilder builder = new StringBuilder();
-        return builder.append("Farmer: \t").append(Farmer.super.name)
-                .append("\t| HP: \t").append(Farmer.super.hp)
-                .append("\t| MaxHP: \t").append(Farmer.super.maxHp)
-                .append("\t| Arrows: \t").append(Farmer.this.arrows)
-                .append("\t| X.Y: \t").append("(").append(Farmer.super.coords.posX)
-                .append(",").append(Farmer.super.coords.posY).append(")")
-                .append("\t State: \t").append(Farmer.super.state);
+        if (state.equals("Die")) return;
+        if (state.equals("Empty")) state = "Stand";
     }
 
 }

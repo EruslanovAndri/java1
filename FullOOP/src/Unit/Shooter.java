@@ -12,27 +12,17 @@ public abstract class Shooter extends Hero {
         this.arrows = arrows;
     }
 
-    public int getArrows() {
-        return arrows;
+    @Override
+    public String getProfession() {
+        return super.getProfession();
     }
 
-    public void setArrows(int arrows) {
-        this.arrows = arrows;
-    }
 
     @Override
     public int getDamageMin() {
         return super.getDamageMin();
     }
 
-
-
-    // 3. Реализовать метод step() лучников.
-// 3.1 Если жизнь равна нулю или стрел нет, завершить оьработку.
-// 3.2 Поиск среди противников наиболее приближённого.
-// 3.3 Нанести среднее повреждение найденному противнику.
-// 3.4 Найти среди своих крестьянина.
-// 3.5 Если найден завершить метод иначе уменьшить запас стрел на одну.
 
     @Override
     public void step(ArrayList<Hero> team1, ArrayList<Hero> team2) {
@@ -43,32 +33,56 @@ public abstract class Shooter extends Hero {
                 if (findFarmer(team1)) {
                     return;
                 }
-                arrows --;
+                arrows--;
             }
         }
     }
 
-    protected boolean findFarmer(ArrayList<Hero> teams){
-        ArrayList<Hero> arrayFarmer = new ArrayList<>();
-        for (Hero hero : teams){
-            if(hero.getInfo().toString().split(":")[0].equals("Farmer")
-                    && ((Farmer)hero).getArrowsFarmer() > 0){
+
+    @Override
+    public String toString() {
+        return "\uD83C\uDFF9" +
+                "\t| H:" + Math.round(hp) +
+                "\tD:" + defence +
+                " \tA:" + attack +
+                " \tDmg:" + Math.round(Math.abs((damageMin + damageMax) / 2)) + "\t" +
+                state;
+
+    }
+
+    @Override
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder(getProfession());
+        return builder.append(": \t").append(name)
+                .append("\t| ATK:\t").append(attack)
+                .append("\t| HP:\t").append(hp)
+                .append(" \t| Arrows:").append(arrows)
+                .append("\t|")
+                .append("  (X:Y): ")
+                .append(coords.posX).append(":").append(coords.posY)
+                .append("\t|");
+
+    }
+
+        protected boolean findFarmer (ArrayList < Hero > teams) {
+            ArrayList<Hero> arrayFarmer = new ArrayList<>();
+            for (Hero hero : teams) {
+                if (hero.getProfession().equals("Фермер") && hero.state.equals("Stand")) {
                     arrayFarmer.add(hero);
+                }
+            }
+            switch (arrayFarmer.size()) {
+                case (0) -> {
+                    return false;
+                }
+                case (1) -> {
+                    arrayFarmer.get(0).state = "Empty";
+                    return true;
+                }
+                default -> {
+                    arrayFarmer.get(findNearest(arrayFarmer)).state = "Empty";
+                    return true;
+                }
             }
         }
-        switch (arrayFarmer.size()){
-            case(0):
-                return false;
-            case (1):
-                ((Farmer) arrayFarmer.get(0)).setArrowsFarmer(0);
-                return true;
-            default:
-                ((Farmer) arrayFarmer.get(findNearest(arrayFarmer))).setArrowsFarmer(0);
-                return true;
-        }
     }
-
-
-
-
-}

@@ -8,17 +8,11 @@ public class Monk extends Magician{
 
     }
 
-
     @Override
-    public StringBuilder getInfo() {
-        StringBuilder builder = new StringBuilder();
-        return builder.append("Monk:  \t\t").append(Monk.super.name)
-                .append("\t| HP: \t").append(Monk.super.hp)
-                .append("\t| MaxHP: \t").append(Monk.super.maxHp)
-                .append("\t| Magic: \t").append(Monk.super.getMagic())
-                .append("\t| X.Y: \t").append("(").append(Monk.super.coords.posX)
-                .append(",").append(Monk.super.coords.posY).append(")")
-                .append("\t State: \t").append(Monk.super.state);
+    public String getProfession() {
+        return "Монах";
     }
+
+
 
 }

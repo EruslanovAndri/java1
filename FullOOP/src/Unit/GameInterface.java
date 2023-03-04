@@ -10,5 +10,7 @@ public interface GameInterface {
 
     Integer getSpeed();
 
+    String getProfession();
+
 
 }

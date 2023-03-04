@@ -13,8 +13,31 @@ public abstract class Magician extends Hero {
         this.maxMagic = maxMagic;
     }
 
-    public int getMagic() {
-        return magic;
+    @Override
+    public String getProfession() {
+        return super.getProfession();
+    }
+
+    @Override
+    public String toString() {
+        return "\uD83E\uDDD9"+
+                "\t| H:" + Math.round(hp) +
+                "\tD:" + defence +
+                " \tA:" + attack +
+                " \tDmg:" + Math.round(Math.abs((damageMin+damageMax)/2)) + "\t" +
+                state;
+    }
+    @Override
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder(getProfession());
+        return builder.append(":  \t").append(name)
+                .append("\t| ATK:\t").append(attack)
+                .append("\t| HP:\t").append(hp)
+                .append(" \t| MP:\t").append(magic)
+                .append("\t|")
+//                .append("  (X:Y): ")
+//                .append(coords.posX).append(":").append(coords.posY)
+                .append("\t|");
     }
 
 

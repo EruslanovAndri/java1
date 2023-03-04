@@ -4,40 +4,23 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
-
-// HW number 3:
-//В материалы добавил xml с полями и параметрами по умолчанию.
-//Убедиться что у вас все поля описанны. Создать в основной программе два списка.
-//Положить в них по 10 случайных персонажей. В первом только крестьянин, разбойник, снайпер или колдун.
-//Во втором крестьянин, копейщик, арбалетчик, монах.
-//Вывести в консоль информацию обо всех персонажах не зависимо от списка,
-//очередь должна определяться скоростью каждого персонажа.
-
-
-// HW number 4:
-
-// 1. Создать класс с описанием координат, x и y.
-// 2. Добавить в абстрактный класс порле с координатами и пробросить
-// его инициализацию до конструкторов персонажей. Farmer farmer = new Farmer(getName(), x, y);
-// 3. Реализовать метод step() лучников.
-// 3.1 Если жизнь равна нулю или стрел нет, завершить оьработку.
-// 3.2 Поиск среди противников наиболее приближённого.
-// 3.3 Нанести среднее повреждение найденному противнику.
-// 3.4 Найти среди своих крестьянина.
-// 3.5 Если найден завершить метод иначе уменьшить запас стрел на одну.
-// Пункты 1, 2 и 3.2 рещены на семинаре ими можно воспользоваться!
 public class Main {
     static final int UNITS = 10;
+    public static ArrayList<Hero> team1 = new ArrayList<>();
+    public static ArrayList<Hero> team2 = new ArrayList<>();
+    public static ArrayList<Hero> teams = new ArrayList<>();
     public static void main(String[] args) {
 
 
-        ArrayList<Hero> team1 = new ArrayList<>();
-        ArrayList<Hero> team2 = new ArrayList<>();
-        ArrayList<Hero> teams = new ArrayList<>();
+
+
         Scanner user_input = new Scanner(System.in);
-        String game = "";
         createTeam(team1, 1, 5, 1);
         createTeam(team2, 4, 8, 10);
+        sortTeam(team1);
+        sortTeam(team2);
+        ArrayList<Hero> team1Live = new ArrayList<>(team1);
+        ArrayList<Hero> team2Live = new ArrayList<>(team2);
         teams.addAll(team1);
         teams.addAll(team2);
         sortTeam(teams);
@@ -45,30 +28,25 @@ public class Main {
         printTeam(teams);
 
 
-        while (game == ""){
-            if(Hero.findLive(team1).size() != 0 && Hero.findLive(team2).size() != 0){
-                sortTeam(team1);
-                sortTeam(team2);
-                printTeam(team1);
-                printTeam(team2);
-                for (Hero hero : teams){
-                    if(team1.contains(hero)){
-                        hero.step(Hero.findLive(team1),Hero.findLive(team2));
-               }
-                    else {
-                        hero.step(Hero.findLive(team2),Hero.findLive(team1));
+        while (true) {
+            View.view();
+            user_input.nextLine();
+            sortTeam(teams);
+            for (Hero hero: teams) {
+                if (team1.size() != 0 && team2.size() != 0) {
+                    if (team1.contains(hero)) {
+                        hero.step(team1Live, team2Live);
+                        team2Live = findLive(team2);
+                    } else {
+                        hero.step(team2Live, team1Live);
+                        team1Live = findLive(team1);
                     }
-
+                } else {
+                    View.searchWinner(team1.size());
+                    return;
                 }
-                game = user_input.nextLine();
             }
-            else {
-                winner(team1,team2);
-                break;
-            }
-
         }
-
     }
 
     static void createTeam(ArrayList list, int start, int end, int posY) {
@@ -148,6 +126,17 @@ public class Main {
         int t1 = Hero.findLive(team1).size();
         int t2 = Hero.findLive(team2).size();
         System.out.println(t1 > t2 ? "Winner team1" : "Winner team2");
+    }
+
+
+    static ArrayList<Hero> findLive(ArrayList<Hero> teams) {
+        ArrayList <Hero> findLive = new ArrayList<>();
+        for (Hero hero : teams) {
+            if (hero.state.equals("Stand")|| hero.state.equals("Empty")) {
+                findLive.add(hero);
+            }
+        }
+        return findLive;
     }
 
 

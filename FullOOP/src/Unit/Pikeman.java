@@ -1,22 +1,27 @@
 package Unit;
 
-public class Pikeman extends Warlock {
+public class Pikeman extends Warrior {
 
 
-    public Pikeman(String name, Vector2D coords) {
-        super(name, coords);
+    public Pikeman(String name,Vector2D coords) {
+        super(name,11.0f,22,3,2,3,2,4, coords.posX, coords.posY);
     }
 
     @Override
-    public StringBuilder getInfo() {
-        StringBuilder builder = new StringBuilder();
-        return builder.append("PikeMan: \t").append(Pikeman.super.name)
-                .append("\t| HP: \t").append(Pikeman.super.hp)
-                .append("\t| MaxHP: \t").append(Pikeman.super.maxHp)
-                .append("\t|\t\t\t")
-                .append("\t| X.Y: \t").append("(").append(Pikeman.super.coords.posX)
-                .append(",").append(Pikeman.super.coords.posY).append(")")
-                .append("\t State: \t").append(Pikeman.super.state);
+    public String getProfession() {
+        return "Копейщик";
+    }
+
+
+    @Override
+    public String toString() {
+        return "\uD83D\uDDE1" +
+                "\t| H:" + Math.round(hp) +
+                "\tD:" + defence +
+                " \tA:" + attack +
+                " \tDmg:" + Math.round(Math.abs((damageMin + damageMax) / 2)) + "\t" +
+                state;
+
     }
 
 

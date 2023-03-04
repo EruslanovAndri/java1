@@ -9,9 +9,9 @@ public abstract class Hero  implements GameInterface {
     protected static Random rnd;
 
     public String name;
-    protected  float hp;
-    protected  int maxHp;
-    protected  int speed;
+    protected float hp;
+    protected int maxHp;
+    protected int speed;
     protected int attack;
     protected int defence;
     protected int damageMin;
@@ -19,17 +19,19 @@ public abstract class Hero  implements GameInterface {
 
     protected Vector2D coords;
 
-    protected String state;
+    public String state;
+
+    protected static int heroCht;
 
 
-    static{
+    static {
         Hero.number = 0;
         Hero.rnd = new Random();
     }
 
     public Hero(String name, float hp, int maxHp, int speed,
                 int attack, int defence, int damageMin,
-                int damageMax,int posX,int posY) {
+                int damageMax, int posX, int posY) {
         this.name = name;
         this.hp = hp;
         this.maxHp = maxHp;
@@ -38,14 +40,9 @@ public abstract class Hero  implements GameInterface {
         this.defence = defence;
         this.damageMin = damageMin;
         this.damageMax = damageMax;
-        coords = new Vector2D(posX,posY);
+        coords = new Vector2D(posX, posY);
         this.state = "Stand";
-    }
-
-
-    @Override
-    public StringBuilder getInfo() {
-        return null;
+        heroCht++;
     }
 
 
@@ -55,14 +52,24 @@ public abstract class Hero  implements GameInterface {
     }
 
     @Override
+    public String getProfession() {
+        return null;
+    }
+
+    @Override
     public void step(ArrayList<Hero> team1, ArrayList<Hero> team2) {
 
     }
+
     protected void getDamage(float damage) {
-        hp -= damage;
-        if(hp > maxHp) hp = maxHp;
-            if (hp <= 0) state = "Die";
-            }
+        this.hp -= damage;
+        if (hp <= 0) {
+            hp = 0;
+            state = "Die";
+        }
+        if(hp >maxHp)hp =maxHp;
+}
+
 
 
 
@@ -114,7 +121,13 @@ public abstract class Hero  implements GameInterface {
             } else {
                 hp = unit.getHp() - ((damageMax+damageMin)/2);
             }
-            unit.setHp(hp < 0 ? 0: hp);
+            if(hp <= 0){
+                unit.state = "Die";
+                unit.setHp(0f);
+            }
+            else {
+                unit.setHp(hp);
+            }
     }
 
     public int getDefence() {
@@ -123,5 +136,18 @@ public abstract class Hero  implements GameInterface {
 
     public void setHp(Float hp) {
         this.hp = hp;
+    }
+
+    public int[] getCoords() { return new int[]{coords.posX, coords.posY};}
+
+    @Override
+    public String toString() {
+        return name +
+                "\t| H:" + Math.round(hp) +
+                "\tD:" + defence +
+                " \tA:" + attack +
+                " \tDmg:" + Math.round(Math.abs((damageMin+damageMax)/2)) + "\t" +
+                state +"  \t"+
+                "\t\t";
     }
 }
