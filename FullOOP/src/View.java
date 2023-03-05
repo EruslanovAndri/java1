@@ -63,7 +63,7 @@ public class View {
         System.out.print(top10 + "\t");
         System.out.print(AnsiColors.ANSI_YELLOW + "Yellow side" + AnsiColors.ANSI_RESET);
         for (int i = 0; i < l[0]; i++) System.out.print(" ");
-        System.out.println("\t|"+ AnsiColors.ANSI_GREEN + "\tGreen side" + AnsiColors.ANSI_RESET);
+        System.out.println(AnsiColors.ANSI_GREEN + "\tGreen side" + AnsiColors.ANSI_RESET);
         for (int i = 1; i < 11; i++) {
             System.out.print(getChar(1, i));
         }
